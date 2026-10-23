@@ -1,2 +1,2 @@
-# fukui-sports-day-program
+# fuchi1-sports-day-program
 運動会のプログラム一覧を管理するためのリポジトリ
