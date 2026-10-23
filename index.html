@@ -12,15 +12,18 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Hiragino Sans","Noto Sans JP",system-ui,sans-serif;max-width:560px;margin-inline:auto;padding:0 14px 40px}
 header{padding:20px 0 10px}
 h1{font-size:22px;line-height:1.35;margin:0 0 4px}
-.meta{color:var(--sub);font-size:13px;margin:0}
+h2{font-size:17px;margin:14px 0 6px}
+.meta,.ev{color:var(--sub);font-size:13px;margin:0}
 .badge{display:inline-block;background:var(--hi);color:var(--hiink);font-size:12px;font-weight:700;padding:1px 8px;border-radius:99px;margin-bottom:6px}
 .tabs{display:flex;gap:6px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding:8px 0;z-index:5}
 .tabs button{flex:1;font:inherit;font-weight:700;font-size:14px;padding:9px 0;border:2px solid var(--g);background:transparent;color:var(--g);border-radius:10px}
 .tabs button[aria-pressed=true]{background:var(--g);color:var(--bg)}
-button:focus-visible,input:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
-input[type=search]{width:100%;font:inherit;padding:11px 14px;border:2px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);margin:4px 0 4px}
-.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px}
-.chips button{flex:none;font:inherit;font-size:13px;padding:5px 12px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
+input[type=search],select,textarea{width:100%;font:inherit;padding:11px 14px;border:2px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
+input[type=search]{margin:4px 0}
+select{font-weight:700;border-color:var(--g);margin:8px 0 16px}
+.chips{display:flex;gap:10px;overflow-x:auto;padding:4px 3px 14px}
+.chips button{flex:none;font:inherit;font-size:14px;padding:8px 16px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px}
 .chips button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
 .p{background:var(--card);border:2px solid var(--line);border-radius:12px;margin-bottom:8px;overflow:hidden}
 .p.sel{border-color:var(--hi);box-shadow:0 0 0 3px color-mix(in srgb,var(--hi) 40%,transparent)}
@@ -28,7 +31,6 @@ input[type=search]{width:100%;font:inherit;padding:11px 14px;border:2px solid va
 .p>button:focus-visible{outline:3px solid var(--hi);outline-offset:-3px}
 .gr{flex:none;width:38px;height:38px;border-radius:50%;background:var(--g);color:var(--bg);display:grid;place-items:center;font-weight:700;font-size:13px;text-align:center;line-height:1.1}
 .nm{font-weight:700}
-.ev{font-size:12.5px;color:var(--sub)}
 .detail{display:none;padding:0 14px 14px;border-top:1px dashed var(--line)}
 .p.open .detail{display:block}
 .detail h3{font-size:14px;margin:14px 0 2px}
@@ -40,12 +42,15 @@ input[type=search]{width:100%;font:inherit;padding:11px 14px;border:2px solid va
 .glow{animation:gl 1.4s ease-in-out infinite}
 @keyframes gl{0%,100%{opacity:.15}50%{opacity:.55}}
 @media (prefers-reduced-motion:reduce){.glow{animation:none}}
-.zt{display:flex;align-items:center;gap:8px;margin:6px 0}
-.zt button{font:inherit;font-size:14px;min-width:44px;min-height:40px;padding:0 10px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px}
+.zt{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:6px 0}
+.zt button,#edp button{font:inherit;font-size:14px;min-width:44px;min-height:40px;padding:0 10px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px}
+.zt button[aria-pressed=true]{background:var(--hi);color:var(--hiink);border-color:var(--hi);font-weight:700}
 .zt span{min-width:48px;text-align:center;font-size:13px;color:var(--sub)}
 .zv{overflow:auto;max-height:70vh;border-radius:8px;border:1px solid var(--line)}
 .cap{font-size:14px;min-height:44px;margin:6px 0 10px;padding:8px 12px;background:var(--card);border:1px solid var(--line);border-radius:10px;color:var(--sub)}
 .cap b{color:var(--ink)}
+#edp{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+#edp textarea{font-size:12px}
 .tw{max-height:260px;overflow:auto;position:relative;border:1px solid var(--line);border-radius:10px;background:var(--card);margin-bottom:18px}
 .t{font-size:14px;width:100%;border-collapse:collapse;margin:0}
 .t th,.t td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line)}
@@ -53,9 +58,11 @@ input[type=search]{width:100%;font:inherit;padding:11px 14px;border:2px solid va
 .t tr[data-i]{cursor:pointer}
 .t tr.hit td{background:color-mix(in srgb,var(--hi) 30%,transparent)}
 .t tr.sel td{background:var(--hi);color:var(--hiink);font-weight:700}
-h2{font-size:17px;margin:18px 0 6px}
-select{width:100%;font:inherit;font-weight:700;padding:11px 14px;border:2px solid var(--g);border-radius:10px;background:var(--card);color:var(--ink);margin:6px 0 2px}
-select:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
+.tg{display:inline-block;padding:0 9px;border-radius:99px;font-size:12px;border:1px solid var(--line)}
+.tg.r{background:#f4c7c7;color:#5a1010;border-color:#e39a9a}
+.tg.w{background:#fff;color:#333;border-color:#bbb}
+.sc{display:flex;gap:12px;width:100%;text-align:left;font:inherit;padding:12px 14px;margin-bottom:8px;background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:12px}
+.tm{font-weight:700;font-size:18px;color:var(--g);min-width:52px}
 .note{font-size:12.5px;color:var(--sub);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-top:20px}
 [hidden]{display:none!important}
 </style>
@@ -69,189 +76,305 @@ select:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
 <input type="search" id="q" placeholder="名前で探す（マップ・一覧でも光ります）" aria-label="名前で探す">
 <div class="tabs" role="group" aria-label="表示切り替え">
 <button data-v="players" aria-pressed="true">選手から探す</button>
-<button data-v="events" aria-pressed="false">種目ごとに見る</button>
+<button data-v="events" aria-pressed="false">種目ごと</button>
+<button data-v="sched" aria-pressed="false">進行表</button>
 </div>
 
 <section id="players">
+<select id="pf" aria-label="種目で絞り込む"></select>
 <div class="chips" id="chips"></div>
 <div id="list"></div>
 </section>
 
 <section id="events" hidden>
 <select id="pg" aria-label="種目を選ぶ"></select>
-<div id="sRelay">
-<h2 id="hRelay"></h2>
+<h2 id="hd"></h2>
+<div class="zt" id="mvrow"><button id="mv" aria-pressed="false">動きを見る</button><div id="mvc" hidden style="display:contents"><button id="mvb">◀ 前へ</button><button id="mvp">▶ 再生</button><button id="mvn">次へ ▶</button><button id="mvs" aria-pressed="false">ゆっくり</button></div></div>
+<div id="s_relay">
 <div class="zt"><button data-z="mRelay" data-d="-1" aria-label="縮小">－</button><span id="zmRelay">100%</span><button data-z="mRelay" data-d="1" aria-label="拡大">＋</button><button data-z="mRelay" data-d="0">元の大きさ</button></div>
 <div class="zv" id="mRelay"></div>
 <p class="cap" id="cRelay"></p>
 <div class="tw" id="wRelay"><table class="t" id="tRelay"></table></div>
 </div>
-
-<div id="sDance">
-<h2 id="hDance"></h2>
+<div id="s_form">
 <div class="chips" id="fchips"></div>
-<div class="zt"><button data-z="mDance" data-d="-1" aria-label="縮小">－</button><span id="zmDance">100%</span><button data-z="mDance" data-d="1" aria-label="拡大">＋</button><button data-z="mDance" data-d="0">元の大きさ</button></div>
+<div class="zt"><button data-z="mDance" data-d="-1" aria-label="縮小">－</button><span id="zmDance">100%</span><button data-z="mDance" data-d="1" aria-label="拡大">＋</button><button data-z="mDance" data-d="0">元の大きさ</button><button id="ed" aria-pressed="false" hidden>配置を編集</button></div>
+<div id="edp" hidden><button id="edclr">元の位置に戻す</button><button id="edout">データを書き出す</button><textarea id="edta" rows="5" readonly hidden></textarea></div>
 <div class="zv" id="mDance"></div>
 <p class="cap" id="cDance"></p>
 <div class="tw" id="wDance"><table class="t" id="tDance"></table></div>
 </div>
+<div id="s_table"><div class="tw" id="wTbl"><table class="t" id="tTbl"></table></div></div>
+</section>
+
+<section id="sched" hidden>
+<div id="sl"></div>
+<p class="note">★印は、天候によって優先して実施する場合があります。時刻は進行の都合で前後することがあります。</p>
 </section>
 
 <p class="note">立ち位置は各ご家庭から集めた情報をもとに作っています。図は見やすくした簡略図で、学校配布のプログラムが正です。</p>
 
 <script>
-// ===== 設定：種目・隊形はここを書き換えます =====
+// ===== 設定（種目・隊形・選手）はここを書き換えます =====
 var G5=["1組","2組","3組","4組","5組"],CLS=["1A","1B","2A","2B","3A","3B","4A","4B","5A","5B"],LANES=5;
-// 種目：grades＝出場する学年
+// kind: relay(レーン図) / form(隊形図) / table(表)。gr=出場学年、star=★、cols=表の列
 var PG=[
- {id:"relay",no:7,short:"ワープリレー",name:"ワープリレー",grades:[2,3,4,5,6]},
- {id:"dance",no:14,short:"団体演技",name:"団体演技「魅せるぞ！6年間の軌跡」",grades:[1,2,3,4,5,6]}
+ {id:"relay",no:7,t:"10:10",ty:"団体",s:"ワープリレー",gr:[2,3,4,5,6],kind:"relay"},
+ {id:"tama",no:9,t:"10:30",ty:"団体",s:"玉入れ",gr:[1],kind:"table",cols:[["team","赤白"]]},
+ {id:"ooda",no:11,t:"10:50",ty:"団体",s:"大玉運び",gr:[4],kind:"table",cols:[["team","赤白"],["role","役割"]]},
+ {id:"bou",no:13,t:"11:10",ty:"団体",s:"棒走り",gr:[3],kind:"table",cols:[["team","赤白"],["color","チーム"],["order","順番"]]},
+ {id:"dance",no:14,t:"11:20",ty:"表現",s:"団体演技",star:1,gr:[1,2,3,4,5,6],kind:"form"}
 ];
-// 団体演技の隊形：kind＝cols(列)/circle(円)/radial(花)/lines(横線)、groups＝並びの区分、per＝1区分の最大人数
+// 隊形：cols(列。lanes=列数) / circle(円。rings=重数) / pods(組ごとの小円) / radial(花) / lines(風)
 var FM=[
  {id:"f1",name:"1〜3曲目はじめ",kind:"cols",groups:CLS,per:14},
- {id:"f2",name:"3曲目移動〜6曲目途中",kind:"circle",groups:G5,per:12},
- {id:"f3",name:"6曲目【2】花",kind:"radial",groups:G5,per:10},
- {id:"f4",name:"6曲目【3】風",kind:"lines",groups:G5,per:14}
+ {id:"f2",name:"各クラス2列",kind:"cols",groups:G5,lanes:2,per:14},
+ {id:"f3",name:"3重の円",kind:"circle",groups:G5,rings:3,rn:["外側","真ん中","内側"],per:12},
+ {id:"f4",name:"組ごとの円",kind:"pods",groups:G5,per:8},
+ {id:"f5",name:"6曲目【2】花",kind:"radial",groups:G5,per:10},
+ {id:"f6",name:"6曲目【3】風",kind:"lines",groups:G5,per:14}
 ];
-// 選手（ダミー）。隊形ごとに位置が違う場合は f:{f2:{g:"2組",n:7}} のように上書きできます
+// 選手（ダミー）。t=表型種目の情報、mk=目印、f=隊形ごとの位置の上書き
 var P=[
- {n:"はると",g:2,cls:"2A",dance:5,lane:2,leg:1},
+ {n:"はると",g:2,cls:"2A",dance:5,lane:2,leg:1,mk:"青いハイソックス"},
  {n:"はる",g:2,cls:"2A",dance:6,lane:2,leg:2},
- {n:"そうた",g:1,cls:"1A",dance:3},
- {n:"りく",g:3,cls:"3B",dance:8,lane:4,leg:3},
- {n:"そら",g:3,cls:"3A",dance:4,lane:4,leg:1},
- {n:"ゆうま",g:4,cls:"4A",dance:2,lane:3,leg:4},
+ {n:"そうた",g:1,cls:"1A",dance:3,t:{tama:{team:"白"}}},
+ {n:"りく",g:3,cls:"3B",dance:8,lane:4,leg:3,t:{bou:{team:"赤",color:"黄",order:"8番"}}},
+ {n:"そら",g:3,cls:"3A",dance:4,lane:4,leg:1,t:{bou:{team:"白",color:"白",order:"2番"}}},
+ {n:"ゆうま",g:4,cls:"4A",dance:2,lane:3,leg:4,t:{ooda:{team:"赤",role:"頭上を転がす"}}},
  {n:"かいと",g:5,cls:"5A",dance:11,lane:5,leg:2},
  {n:"れん",g:6,cls:"5B",dance:6,lane:1,leg:5}
 ];
-// ===== ここから表示処理 =====
-var $=function(i){return document.getElementById(i)};
-var sel=-1,fi=0,cur="all",OP={},Z={mRelay:0,mDance:0},ZS=[1,1.5,2,3];
-var HINT="点や表の行を押すと、誰の位置かが表示されます";
-function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
-function r1(v){return +v.toFixed(1)}
-function gt(a){return a.length===6?"全学年":a.length===1?a[0]+"年":a[0]+"〜"+a[a.length-1]+"年"}
-function joins(p,id){return PG.some(function(x){return x.id===id&&x.grades.indexOf(p.g)>-1})}
-function pos(p,f){return (p.f&&p.f[f.id])||{g:f.kind==="cols"?p.cls:p.cls.charAt(0)+"組",n:p.dance}}
-function ptxt(p,f){var q=pos(p,f);return esc(q.g)+"の"+q.n+"番目"}
-function match(p){var q=$("q").value.trim();return !!q&&p.n.indexOf(q)>-1}
+// ===== 表示処理 =====
+var $=i=>document.getElementById(i);
+var sel=-1,fi=0,cur="all",pf="all",pgSel="relay",ED=false,OP={},Z={mRelay:0,mDance:0},ZS=[1,1.5,2,3];
+var HINT="点や表の行を押すと、誰の位置かが表示されます",R=Math.PI/180;
+var esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+var r1=v=>+v.toFixed(1);
+var gt=a=>a.length===6?"全学年":a.length===1?a[0]+"年":a[0]+"〜"+a[a.length-1]+"年";
+var PGo=id=>PG.filter(x=>x.id===id)[0];
+var joins=(p,id)=>PGo(id).gr.indexOf(p.g)>-1;
+var match=p=>{var q=$("q").value.trim();return !!q&&p.n.indexOf(q)>-1};
+var ex=(p,f)=>{var o=p.f&&p.f[f.id];return o&&o.x!=null?o:null};
+function pos(p,f){var o=p.f&&p.f[f.id];if(o&&o.g)return o;return{g:f.kind==="cols"&&!f.lanes?p.cls:p.cls.charAt(0)+"組",l:1+p.dance%(f.lanes||1),r:1+p.dance%(f.rings||1),n:p.dance}}
+function ptxt(p,f){if(ex(p,f))return"図で指定した位置";var q=pos(p,f);return esc(q.g)+(f.lanes?"の"+q.l+"列目":"")+(f.rings?"の"+f.rn[q.r-1]:"")+"の"+q.n+"番目"}
+var tg=v=>'<span class="tg '+(v==="赤"?"r":v==="白"?"w":"")+'">'+esc(v)+'</span>';
+function opts(c,all){return(all?'<option value="all"'+(c==="all"?" selected":"")+'>すべての種目</option>':"")+PG.map(g=>`<option value="${g.id}"${g.id===c?" selected":""}>${g.t} No.${g.no} ${esc(g.s)}${g.star?"★":""}（${gt(g.gr)}）</option>`).join("")}
 
 function dot(i,x,y,r,p){
  var m=match(p),on=i===sel,q=$("q").value.trim(),dim=q&&!m&&!on;x=r1(x);y=r1(y);
- var gl=(m||on)?'<circle class="glow" cx="'+x+'" cy="'+y+'" r="'+(r+8)+'" fill="var(--hi)"/><circle cx="'+x+'" cy="'+y+'" r="'+(r+4)+'" fill="none" stroke="var(--hi)" stroke-width="3"/>':"";
- return '<g data-i="'+i+'" tabindex="0" role="button" aria-label="'+esc(p.n)+'"'+(dim?' opacity=".3"':"")+'>'+gl+'<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="'+(on?"var(--hi)":"var(--g)")+'" stroke="'+(on?"var(--hiink)":"var(--bg)")+'" stroke-width="2"/><text x="'+x+'" y="'+(y+3.5)+'" text-anchor="middle" font-size="10" font-weight="700" fill="'+(on?"var(--hiink)":"var(--bg)")+'" pointer-events="none">'+esc(p.n.charAt(0))+'</text></g>';
+ var gl=(m||on)?`<circle class="glow" cx="${x}" cy="${y}" r="${r+8}" fill="var(--hi)"/><circle cx="${x}" cy="${y}" r="${r+4}" fill="none" stroke="var(--hi)" stroke-width="3"/>`:"";
+ return `<g data-i="${i}" tabindex="0" role="button" aria-label="${esc(p.n)}"${dim?' opacity=".3"':""}>${gl}<circle cx="${x}" cy="${y}" r="${r}" fill="${on?"var(--hi)":"var(--g)"}" stroke="${on?"var(--hiink)":"var(--bg)"}" stroke-width="2"/><text x="${x}" y="${y+3.5}" text-anchor="middle" font-size="10" font-weight="700" fill="${on?"var(--hiink)":"var(--bg)"}" pointer-events="none">${esc(p.n.charAt(0))}</text></g>`;
 }
 var STAGE='<rect x="110" y="4" width="100" height="22" rx="4" fill="none" stroke="currentColor" opacity=".6"/><text x="160" y="20" text-anchor="middle" font-size="12" fill="currentColor">朝礼台</text>';
 function geo(f){
- var gs=f.groups,L=gs.length,sp=360/L,b="",pt,rad=function(d){return d*Math.PI/180};
- function lab(x,y,c,an){return '<text x="'+r1(x)+'" y="'+r1(y)+'" text-anchor="'+(an||"middle")+'" font-size="11" fill="var(--sub)">'+c+'</text>'}
+ var gs=f.groups,L=gs.length,sp=360/L,b="",pt,ln=f.lanes||1,rg=f.rings||1;
+ var line=(x1,y1,x2,y2,c)=>`<line x1="${r1(x1)}" y1="${r1(y1)}" x2="${r1(x2)}" y2="${r1(y2)}" stroke="${c||"var(--line)"}" stroke-width="2"/>`;
+ var lab=(x,y,c,a)=>`<text x="${r1(x)}" y="${r1(y)}" text-anchor="${a||"middle"}" font-size="11" fill="var(--sub)">${c}</text>`;
  if(f.kind==="cols"){
-  gs.forEach(function(c,k){var x=26+k*29;b+='<line x1="'+x+'" y1="40" x2="'+x+'" y2="250" stroke="var(--line)" stroke-width="2"/>'+lab(x,266,c)});
-  pt=function(k,n){return[26+k*29,40+Math.min(n,f.per)*(210/f.per)]};
+  var gw=290/L,X=(k,l)=>15+(k+.5)*gw+(l-(ln+1)/2)*13;
+  gs.forEach((c,k)=>{for(var l=1;l<=ln;l++)b+=line(X(k,l),40,X(k,l),250);b+=lab(X(k,(ln+1)/2),266,c)});
+  pt=(k,d)=>[X(k,d.l||1),40+Math.min(d.n,f.per)*210/f.per];
  }else if(f.kind==="circle"){
-  b='<ellipse cx="160" cy="150" rx="120" ry="82" fill="none" stroke="var(--line)" stroke-width="2"/>';
-  gs.forEach(function(c,k){var a=rad(-90+k*sp),m=rad(-90+(k+.5)*sp);
-   b+='<line x1="'+r1(160+112*Math.cos(a))+'" y1="'+r1(150+74*Math.sin(a))+'" x2="'+r1(160+128*Math.cos(a))+'" y2="'+r1(150+90*Math.sin(a))+'" stroke="var(--sub)" stroke-width="2"/>'+lab(160+138*Math.cos(m),150+100*Math.sin(m)+4,c)});
-  pt=function(k,n){var t=rad(-90+(k+(Math.min(n,f.per)-.5)/f.per)*sp);return[160+120*Math.cos(t),150+82*Math.sin(t)]};
+  var S=r=>1-(r-1)*.28;
+  for(var r=1;r<=rg;r++)b+=`<ellipse cx="160" cy="150" rx="${120*S(r)}" ry="${82*S(r)}" fill="none" stroke="var(--line)" stroke-width="2"/>`;
+  gs.forEach((c,k)=>{var a=R*(-90+k*sp),m=R*(-90+(k+.5)*sp),s0=S(rg)-.1;
+   b+=line(160+120*s0*Math.cos(a),150+82*s0*Math.sin(a),160+130*Math.cos(a),150+90*Math.sin(a),"var(--sub)")+lab(160+140*Math.cos(m),150+100*Math.sin(m)+4,c)});
+  pt=(k,d)=>{var s=S(d.r||1),t=R*(-90+(k+(Math.min(d.n,f.per)-.5)/f.per)*sp);return[160+120*s*Math.cos(t),150+82*s*Math.sin(t)]};
+ }else if(f.kind==="pods"){
+  var C=[[60,185],[110,95],[160,185],[210,95],[260,185]];
+  gs.forEach((c,k)=>{var o=C[k]||[160,140];b+=`<circle cx="${o[0]}" cy="${o[1]}" r="28" fill="none" stroke="var(--line)" stroke-width="2"/>`+lab(o[0],o[1]+4,c)});
+  pt=(k,d)=>{var o=C[k]||[160,140],t=R*(-90+(Math.min(d.n,f.per)-.5)/f.per*360);return[o[0]+28*Math.cos(t),o[1]+28*Math.sin(t)]};
  }else if(f.kind==="radial"){
-  gs.forEach(function(c,k){var a=rad(-90+(k+.5)*sp),ca=Math.cos(a),sa=Math.sin(a);
-   b+='<line x1="160" y1="140" x2="'+r1(160+104*ca)+'" y2="'+r1(140+104*sa)+'" stroke="var(--line)" stroke-width="2"/>'+lab(160+118*ca,140+118*sa+4,c)});
-  pt=function(k,n){var a=rad(-90+(k+.5)*sp),r=14+(Math.min(n,f.per)-1)*(88/(f.per-1));return[160+r*Math.cos(a),140+r*Math.sin(a)]};
+  gs.forEach((c,k)=>{var a=R*(-90+(k+.5)*sp),ca=Math.cos(a),sa=Math.sin(a);b+=line(160,140,160+104*ca,140+104*sa)+lab(160+118*ca,140+118*sa+4,c)});
+  pt=(k,d)=>{var a=R*(-90+(k+.5)*sp),r=14+(Math.min(d.n,f.per)-1)*88/(f.per-1);return[160+r*Math.cos(a),140+r*Math.sin(a)]};
  }else{
-  gs.forEach(function(c,k){var y=64+k*42;b+='<line x1="24" y1="'+y+'" x2="306" y2="'+y+'" stroke="var(--line)" stroke-width="2"/>'+lab(24,y-6,c,"start")});
-  pt=function(k,n){return[30+Math.min(n,f.per)*(270/f.per),64+k*42]};
+  gs.forEach((c,k)=>{var y=64+k*42;b+=line(24,y,306,y)+lab(24,y-6,c,"start")});
+  pt=(k,d)=>[30+Math.min(d.n,f.per)*270/f.per,64+k*42];
  }
  return{b:STAGE+b,pt:pt};
 }
-// 団体演技マップ：p を渡すとその選手だけ、省略すると全員
+function where(p,f,g){var e=ex(p,f);if(e)return[e.x,e.y];var q=pos(p,f),k=f.groups.indexOf(q.g);return k<0?null:g.pt(k,q)}
 function fmap(f,p){
- var g=geo(f),h='<svg class="map" viewBox="0 0 320 270" role="group" aria-label="団体演技 '+esc(f.name)+'">'+g.b;
- if(p){var q=pos(p,f),k=f.groups.indexOf(q.g);if(k>-1){var c=g.pt(k,q.n),x=r1(c[0]),y=r1(c[1]);h+='<circle cx="'+x+'" cy="'+y+'" r="10" fill="var(--hi)" stroke="var(--hiink)" stroke-width="2"/><text x="'+x+'" y="'+(y+4)+'" text-anchor="middle" font-size="10" font-weight="700" fill="var(--hiink)">'+q.n+'</text>'}}
- else P.forEach(function(s,i){if(!joins(s,"dance"))return;var o=pos(s,f),k=f.groups.indexOf(o.g);if(k>-1){var c=g.pt(k,o.n);h+=dot(i,c[0],c[1],8,s)}});
+ var g=geo(f),h=`<svg class="map" viewBox="0 0 320 270" role="group" aria-label="団体演技 ${esc(f.name)}">${g.b}`;
+ if(p){var c=where(p,f,g);if(c){var x=r1(c[0]),y=r1(c[1]);h+=`<circle cx="${x}" cy="${y}" r="10" fill="var(--hi)" stroke="var(--hiink)" stroke-width="2"/><text x="${x}" y="${y+4}" text-anchor="middle" font-size="10" font-weight="700" fill="var(--hiink)">${ex(p,f)?"●":pos(p,f).n}</text>`}}
+ else P.forEach((s,i)=>{if(!joins(s,"dance"))return;var c=where(s,f,g);if(c)h+=dot(i,c[0],c[1],8,s)});
  return h+"</svg>";
 }
-function relay(p){
+function relay(p,nd){
  var h='<svg class="map" viewBox="0 0 320 190" role="group" aria-label="ワープリレーの位置"><text x="160" y="16" text-anchor="middle" font-size="12" fill="currentColor">朝礼台</text>';
  for(var l=1;l<=LANES;l++){var y=26+(l-1)*28,on=p&&l===p.lane;
-  h+='<rect x="40" y="'+y+'" width="260" height="22" rx="11" fill="'+(on?"var(--g)":"none")+'" stroke="'+(on?"var(--g)":"var(--line)")+'" stroke-width="2"/><text x="20" y="'+(y+16)+'" text-anchor="middle" font-size="12" font-weight="'+(on?700:400)+'" fill="'+(on?"var(--g)":"var(--sub)")+'">'+l+'</text>'}
- if(p){var cx=60+(p.leg-1)*45,cy=26+(p.lane-1)*28+11;h+='<circle cx="'+cx+'" cy="'+cy+'" r="10" fill="var(--hi)" stroke="var(--hiink)" stroke-width="2"/><text x="'+cx+'" y="'+(cy+4)+'" text-anchor="middle" font-size="11" font-weight="700" fill="var(--hiink)">'+p.leg+'</text>'}
- else P.forEach(function(s,i){if(joins(s,"relay"))h+=dot(i,60+(s.leg-1)*45,26+(s.lane-1)*28+11,10,s)});
- return h+'<text x="40" y="182" font-size="11" fill="var(--sub)">スタート側</text><text x="300" y="182" text-anchor="end" font-size="11" fill="var(--sub)">ゴール側</text></svg>';
+  h+=`<rect x="40" y="${y}" width="260" height="22" rx="11" fill="${on?"var(--g)":"none"}" stroke="${on?"var(--g)":"var(--line)"}" stroke-width="2"/><text x="20" y="${y+16}" text-anchor="middle" font-size="12" font-weight="${on?700:400}" fill="${on?"var(--g)":"var(--sub)"}">${l}</text><line x1="52" y1="${y+11}" x2="282" y2="${y+11}" stroke="${on?"var(--bg)":"var(--sub)"}" stroke-width="2" opacity="${on?.9:.45}"/><polygon points="280,${y+5} 292,${y+11} 280,${y+17}" fill="${on?"var(--bg)":"var(--sub)"}" opacity="${on?.9:.45}"/>`}
+ if(p){var cx=60+(p.leg-1)*45,cy=26+(p.lane-1)*28+11;h+=`<circle cx="${cx}" cy="${cy}" r="10" fill="var(--hi)" stroke="var(--hiink)" stroke-width="2"/><text x="${cx}" y="${cy+4}" text-anchor="middle" font-size="11" font-weight="700" fill="var(--hiink)">${p.leg}</text>`}
+ else if(!nd)P.forEach((s,i)=>{if(joins(s,"relay"))h+=dot(i,60+(s.leg-1)*45,26+(s.lane-1)*28+11,10,s)});
+ return h+'<text x="40" y="182" font-size="11" fill="var(--sub)">スタート側（左）</text><text x="300" y="182" text-anchor="end" font-size="11" fill="var(--sub)">ゴール側（右）</text></svg>';
 }
 function setMap(id,h){var el=$(id),sl=el.scrollLeft,st=el.scrollTop;el.innerHTML=h;el.firstChild.style.width=(ZS[Z[id]]*100)+"%";el.scrollLeft=sl;el.scrollTop=st}
-function renderMaps(){setMap("mRelay",relay());setMap("mDance",fmap(FM[fi]))}
+function renderMaps(){var kd=PGo(pgSel).kind;setMap("mRelay",MV&&kd==="relay"?rvSvg():relay());setMap("mDance",MV&&kd==="form"?mvSvg():fmap(FM[fi]));if(MV)mvInit()}
 
+// ===== 隊形の移り変わり（動きを見る） =====
+var MV=false,PL={on:false,P:0,last:0,raf:0,slow:false,key:""},PT=[],dotEls=[],RM=typeof matchMedia==="function"&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+function mvPts(){PT=FM.map(f=>{var g=geo(f);return P.map(p=>joins(p,"dance")?where(p,f,g):null)})}
+function mvSvg(){
+ var h='<svg class="map" viewBox="0 0 320 270" role="group" aria-label="団体演技 隊形の移り変わり"><g id="mvB"></g>',p=P[sel];
+ if(p&&joins(p,"dance")){
+  var pts=PT.map(a=>a[sel]).filter(Boolean);
+  h+='<polyline points="'+pts.map(c=>r1(c[0])+","+r1(c[1])).join(" ")+'" fill="none" stroke="var(--hi)" stroke-width="2.5" stroke-dasharray="5 4"/>';
+  PT.forEach((a,k)=>{var c=a[sel];if(c)h+=`<circle cx="${r1(c[0])}" cy="${r1(c[1])}" r="7" fill="var(--card)" stroke="var(--hi)" stroke-width="2"/><text x="${r1(c[0])}" y="${r1(c[1])+3}" text-anchor="middle" font-size="9" font-weight="700" fill="var(--ink)">${k+1}</text>`});
+ }
+ P.forEach((s,i)=>{if(!joins(s,"dance"))return;var d=dot(i,0,0,8,s);if(sel>-1&&i!==sel&&d.indexOf(' opacity=')<0)d=d.replace("<g ",'<g opacity=".35" ');h+=d});
+ return h+"</svg>";
+}
+var RL=1;
+function legs(){return Math.max.apply(null,[1].concat(P.filter(p=>joins(p,"relay")).map(p=>p.leg)))}
+function rvSvg(){
+ var L=RL,w=232/L,x="";
+ for(var k=1;k<L;k++)for(var l=1;l<=LANES;l++){var y=26+(l-1)*28,bx=r1(52+k*w);x+=`<line x1="${bx}" y1="${y}" x2="${bx}" y2="${y+22}" stroke="var(--sub)" stroke-width="1.5" stroke-dasharray="2 2"/>`}
+ P.forEach((s,i)=>{if(!joins(s,"relay"))return;var d=dot(i,0,0,9,s);if(sel>-1&&i!==sel&&d.indexOf(' opacity=')<0)d=d.replace("<g ",'<g opacity=".35" ');x+=d});
+ return relay(null,1).replace("</svg>",x+"</svg>");
+}
+function drawRelay(){
+ var L=RL,w=232/L,Q=PL.P,key=Q>=L?"h":"r"+Math.floor(Q);
+ if(key!==PL.key){PL.key=key;mvCap()}
+ P.forEach((p,i)=>{var el=dotEls[i];if(!el||!joins(p,"relay"))return;
+  var k=p.leg,u=Math.min(1,Math.max(0,Q-(k-1))),e=u<.5?2*u*u:1-2*(1-u)*(1-u),xs=52+(k-1)*w,st=Q<k-1?.55:(u<1?1:(k===L?1:0)),b=(sel>-1&&i!==sel)?.35:1;
+  el.setAttribute("transform","translate("+r1(xs+w*e)+" "+(26+(p.lane-1)*28+11)+")");el.style.opacity=b*st});
+}
+function mvInit(){var kd=PGo(pgSel).kind;if(kd==="table"){dotEls=[];return}var c=kd==="relay"?"#mRelay":"#mDance";dotEls=P.map((_,i)=>document.querySelector(c+" g[data-i='"+i+"']"));PL.key="";drawFrame()}
+function mvCap(){
+ if(PGo(pgSel).kind==="relay"){var L=RL,k=PL.P>=L?L:Math.floor(PL.P)+1,q=P[sel];$("cRelay").innerHTML=(PL.P>=L?"<b>ゴール！</b>":`<b>${k}走目</b>が走っています（全${L}走）`)+(q&&joins(q,"relay")?`<br>${esc(q.n)}：${q.lane}レーン・${q.leg}走目`:"<br>選手を押すと、その選手を目立たせます");return}
+ var n=FM.length,seg=Math.floor(PL.P)%n,mv=PL.P-Math.floor(PL.P)>=.44,to=(seg+1)%n,p=P[sel];
+ $("cDance").innerHTML=(mv?`<b>${esc(FM[seg].name)}</b> → <b>${esc(FM[to].name)}</b>`:`<b>${seg+1}/${n}　${esc(FM[seg].name)}</b>`)+(p&&joins(p,"dance")?`<br>${esc(p.n)}：${ptxt(p,FM[mv?to:seg])}`:"<br>選手を押すと、その選手の動きの線が出ます");
+}
+function drawFrame(){
+ if(!MV||!dotEls.length)return;
+ var kd=PGo(pgSel).kind;if(kd==="relay"){drawRelay();return}if(kd!=="form")return;
+ var n=FM.length,fl=Math.floor(PL.P),seg=fl%n,fr=PL.P-fl,mv=fr>=.44,to=(seg+1)%n,key=seg+(mv?"m":"h"),t=(fr-.44)/.56,u=mv?(t<.5?2*t*t:1-2*(1-t)*(1-t)):0;
+ if(key!==PL.key){PL.key=key;$("mvB").innerHTML=mv?'<g opacity=".3">'+geo(FM[to]).b+"</g>":geo(FM[seg]).b;mvCap();if(!mv&&fi!==seg){fi=seg;renderChips();renderEvents()}}
+ P.forEach((p,i)=>{var el=dotEls[i];if(!el)return;var a=PT[seg][i],b=PT[to][i],A=a||b,B=b||a;if(!A){el.style.display="none";return}el.style.display="";el.setAttribute("transform","translate("+r1(A[0]+(B[0]-A[0])*u)+" "+r1(A[1]+(B[1]-A[1])*u)+")")});
+}
+function tick(ts){
+ if(!PL.on)return;
+ if($("events").hidden||($("s_form").hidden&&$("s_relay").hidden)){pauseMV();return}
+ var dt=PL.last?Math.min(ts-PL.last,100):0;PL.last=ts;
+ var rl=PGo(pgSel).kind==="relay";PL.P=(PL.P+dt/((rl?1500:2700)*(PL.slow?1.8:1)))%(rl?RL+.8:FM.length);drawFrame();PL.raf=requestAnimationFrame(tick);
+}
+function pauseMV(){PL.on=false;cancelAnimationFrame(PL.raf);$("mvp").textContent="▶ 再生"}
+function stepMV(d){var n=PGo(pgSel).kind==="relay"?RL+1:FM.length,x=PL.P,k=Math.abs(x-Math.round(x))<1e-6?Math.round(x)+d:(d>0?Math.ceil(x):Math.floor(x));PL.P=((k%n)+n)%n;pauseMV();drawFrame();PL.key="";drawFrame()}
+function setMV(v){
+ MV=v;pauseMV();$("mv").setAttribute("aria-pressed",v);$("mvc").hidden=!v;$("mvp").hidden=RM;
+ if(v){if(ED){ED=false;$("ed").setAttribute("aria-pressed",false);$("edp").hidden=true}mvPts();RL=legs();PL.P=PGo(pgSel).kind==="relay"?0:fi}
+ renderMaps();caps();
+}
 function detail(p){
- var h="";
- if(joins(p,"relay"))h+='<h3>No.7 ワープリレー</h3><p>'+p.lane+'レーン・'+p.leg+'走目</p>'+relay(p);
- if(joins(p,"dance")){h+='<h3>No.14 団体演技</h3>';FM.forEach(function(f){h+='<p>'+esc(f.name)+'：'+ptxt(p,f)+'</p>'+fmap(f,p)})}
+ var h=p.mk?`<p>目印：${esc(p.mk)}</p>`:"";
+ PG.forEach(g=>{
+  if(!joins(p,g.id)||(pf!=="all"&&pf!==g.id))return;
+  h+=`<h3>${g.t} No.${g.no} ${esc(g.s)}</h3>`;
+  if(g.kind==="relay")h+=`<p>${p.lane}レーン・${p.leg}走目</p>`+relay(p);
+  else if(g.kind==="form")FM.forEach(f=>{h+=`<p>${esc(f.name)}：${ptxt(p,f)}</p>`+fmap(f,p)});
+  else{var d=(p.t&&p.t[g.id])||{};h+="<p>"+g.cols.map(c=>c[1]+"："+esc(d[c[0]]||"—")).join("　")+"</p>"}
+ });
  return h;
 }
 function renderList(){
  var q=$("q").value.trim(),h="";
- P.forEach(function(p,i){
-  if(!(cur==="all"||String(p.g)===cur)||(q&&p.n.indexOf(q)<0))return;
-  var ev=PG.filter(function(x){return joins(p,x.id)}).map(function(x){return x.short}).join("／");
-  h+='<div class="p'+(OP[i]?" open":"")+(i===sel?" sel":"")+'"><button aria-expanded="'+!!OP[i]+'" data-k="'+i+'"><span class="gr">'+p.g+'<br>年</span><span><span class="nm">'+esc(p.n)+'</span><br><span class="ev">'+ev+'</span></span></button><div class="detail">'+(OP[i]?detail(p):"")+'</div></div>';
+ P.forEach((p,i)=>{
+  if(!(cur==="all"||String(p.g)===cur)||(q&&p.n.indexOf(q)<0)||(pf!=="all"&&!joins(p,pf)))return;
+  var ev=PG.filter(g=>joins(p,g.id)&&(pf==="all"||g.id===pf)).map(g=>g.t+" "+g.s).join("／");
+  h+=`<div class="p${OP[i]?" open":""}${i===sel?" sel":""}"><button aria-expanded="${!!OP[i]}" data-k="${i}"><span class="gr">${p.g}<br>年</span><span><span class="nm">${esc(p.n)}</span><br><span class="ev">${ev}</span></span></button><div class="detail">${OP[i]?detail(p):""}</div></div>`;
  });
  $("list").innerHTML=h||'<p class="meta">該当する選手がいません。名前や学年を変えて探してください。</p>';
 }
 function renderChips(){
- var h="";["all",1,2,3,4,5,6].forEach(function(g){h+='<button data-g="'+g+'" aria-pressed="'+(String(g)===cur)+'">'+(g==="all"?"全員":g+"年")+'</button>'});
- $("chips").innerHTML=h;
- $("fchips").innerHTML=FM.map(function(f,k){return '<button data-f="'+k+'" aria-pressed="'+(k===fi)+'">'+esc(f.name)+'</button>'}).join("");
+ $("chips").innerHTML=["all",1,2,3,4,5,6].map(g=>`<button data-g="${g}" aria-pressed="${String(g)===cur}">${g==="all"?"全員":g+"年"}</button>`).join("");
+ $("fchips").innerHTML=FM.map((f,k)=>`<button data-f="${k}" aria-pressed="${k===fi}">${esc(f.name)}</button>`).join("");
 }
-function row(i,c){return '<tr data-i="'+i+'"'+(i===sel?' class="sel"':match(P[i])?' class="hit"':"")+'>'+c+'</tr>'}
+var row=(i,c)=>`<tr data-i="${i}"${i===sel?' class="sel"':match(P[i])?' class="hit"':""}>${c}</tr>`;
 function scrollRow(id){var w=$(id),r=w.querySelector("tr.sel");if(r)w.scrollTop=r.offsetTop-w.clientHeight/2+r.offsetHeight/2}
+var who=p=>esc(p.n)+"（"+p.g+"年）";
 function renderEvents(){
- var f=FM[fi],r='<tr><th>レーン</th><th>走順</th><th>選手</th></tr>',d='<tr><th>区分</th><th>番目</th><th>選手</th></tr>',ix=P.map(function(_,i){return i});
- $("hRelay").textContent="No.7 "+PG[0].name+"（"+gt(PG[0].grades)+"）";
- $("hDance").textContent="No.14 "+PG[1].name+"（"+gt(PG[1].grades)+"）";
- ix.filter(function(i){return joins(P[i],"relay")}).sort(function(a,b){return P[a].lane-P[b].lane||P[a].leg-P[b].leg}).forEach(function(i){var p=P[i];r+=row(i,'<td>'+p.lane+'レーン</td><td>'+p.leg+'走目</td><td>'+esc(p.n)+'（'+p.g+'年）</td>')});
- ix.filter(function(i){return joins(P[i],"dance")}).sort(function(a,b){var x=pos(P[a],f),y=pos(P[b],f);return f.groups.indexOf(x.g)-f.groups.indexOf(y.g)||x.n-y.n}).forEach(function(i){var p=P[i],o=pos(p,f);d+=row(i,'<td>'+esc(o.g)+'</td><td>'+o.n+'番目</td><td>'+esc(p.n)+'（'+p.g+'年）</td>')});
- $("tRelay").innerHTML=r;$("tDance").innerHTML=d;scrollRow("wRelay");scrollRow("wDance");
+ var g=PGo(pgSel),f=FM[fi],ix=P.map((_,i)=>i).filter(i=>joins(P[i],g.id)),h;
+ ["relay","form","table"].forEach(k=>$("s_"+k).hidden=g.kind!==k);$("mvrow").hidden=g.kind==="table";
+ $("hd").textContent=`${g.t}　No.${g.no} ${g.s}${g.star?" ★":""}（${g.ty}・${gt(g.gr)}）`;
+ if(g.kind==="relay"){
+  h="<tr><th>レーン</th><th>走順</th><th>選手</th></tr>";
+  ix.sort((a,b)=>P[a].lane-P[b].lane||P[a].leg-P[b].leg).forEach(i=>{var p=P[i];h+=row(i,`<td>${p.lane}レーン</td><td>${p.leg}走目</td><td>${who(p)}</td>`)});
+  $("tRelay").innerHTML=h;scrollRow("wRelay");
+ }else if(g.kind==="form"){
+  h="<tr><th>位置</th><th>選手</th></tr>";
+  var key=i=>{var p=P[i];return ex(p,f)?[99,0]:[f.groups.indexOf(pos(p,f).g),pos(p,f).n]};
+  ix.sort((a,b)=>key(a)[0]-key(b)[0]||key(a)[1]-key(b)[1]).forEach(i=>{h+=row(i,`<td>${ptxt(P[i],f)}</td><td>${who(P[i])}</td>`)});
+  $("tDance").innerHTML=h;scrollRow("wDance");
+ }else{
+  h="<tr><th>選手</th>"+g.cols.map(c=>`<th>${c[1]}</th>`).join("")+"</tr>";
+  var d=i=>(P[i].t&&P[i].t[g.id])||{};
+  ix.sort((a,b)=>String(d(a).team).localeCompare(String(d(b).team))||parseInt(d(a).order)-parseInt(d(b).order)).forEach(i=>{h+=row(i,`<td>${who(P[i])}</td>`+g.cols.map(c=>`<td>${c[0]==="team"&&d(i).team?tg(d(i).team):esc(d(i)[c[0]]||"—")}</td>`).join(""))});
+  $("tTbl").innerHTML=h;scrollRow("wTbl");
+ }
+}
+function renderSched(){
+ $("sl").innerHTML=PG.map(g=>`<button class="sc" data-pg="${g.id}"><span class="tm">${g.t}</span><span><b>No.${g.no} ${esc(g.s)}${g.star?" ★":""}</b><br><span class="ev">${g.ty}・${gt(g.gr)}</span><br><span class="ev">出場：${P.filter(p=>joins(p,g.id)).map(p=>esc(p.n)).join("、")||"なし"}</span></span></button>`).join("");
 }
 function caps(){
- var p=P[sel];
- if(!p){$("cRelay").textContent=HINT;$("cDance").textContent=HINT;return}
- var w='<b>'+esc(p.n)+'</b>（'+p.g+'年）　';
- $("cRelay").innerHTML=w+(joins(p,"relay")?p.lane+'レーン・'+p.leg+'走目':'この種目には出ません');
- $("cDance").innerHTML=w+(joins(p,"dance")?esc(FM[fi].name)+'：'+ptxt(p,FM[fi]):'この種目には出ません');
+ if(MV){mvCap();return}
+ var p=P[sel],w=p?`<b>${esc(p.n)}</b>（${p.g}年）　`:"";
+ if(!p){$("cRelay").textContent=HINT;$("cDance").textContent=ED?"編集中：先に選手を選んでください":HINT;return}
+ $("cRelay").innerHTML=w+(joins(p,"relay")?`${p.lane}レーン・${p.leg}走目`:"この種目には出ません");
+ $("cDance").innerHTML=w+(ED?"編集中：置きたい場所を図で押してください":joins(p,"dance")?esc(FM[fi].name)+"："+ptxt(p,FM[fi]):"この種目には出ません");
 }
 function refresh(){renderList();renderMaps();renderEvents();caps()}
+function show(v){
+ if(v!=="events"&&ED){ED=false;$("ed").setAttribute("aria-pressed",false);$("edp").hidden=true}
+ document.querySelectorAll(".tabs button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.v===v));
+ ["players","events","sched"].forEach(s=>$(s).hidden=s!==v);
+ if(v==="events"){renderEvents();if(MV)setMV(true)}
+}
+function load(){try{var m=JSON.parse(localStorage.getItem("undokai-f")||"{}");P.forEach(p=>{if(m[p.n])p.f=m[p.n]})}catch(e){}}
+function saved(){var m={};P.forEach(p=>{if(p.f&&Object.keys(p.f).length)m[p.n]=p.f});return m}
+function save(){try{localStorage.setItem("undokai-f",JSON.stringify(saved()))}catch(e){}}
 function pick(t){
  sel=+t.getAttribute("data-i");var m=t.closest("#mRelay")?"#mRelay":t.closest("#mDance")?"#mDance":"";
  refresh();
  if(m){var a=document.querySelector(m+" g[data-i='"+sel+"']");if(a)a.focus()}
 }
-$("list").addEventListener("click",function(e){
+$("list").addEventListener("click",e=>{
  var b=e.target.closest("button[data-k]");if(!b)return;
  var i=+b.getAttribute("data-k");OP[i]=!OP[i];if(OP[i])sel=i;else if(sel===i)sel=-1;refresh();
 });
-$("events").addEventListener("click",function(e){var t=e.target.closest("[data-i]");if(t)pick(t)});
-$("events").addEventListener("keydown",function(e){var t=e.target.closest&&e.target.closest("g[data-i]");if(t&&(e.key==="Enter"||e.key===" ")){e.preventDefault();pick(t)}});
-$("chips").addEventListener("click",function(e){var b=e.target.closest("button[data-g]");if(!b)return;cur=b.getAttribute("data-g");renderChips();renderList()});
-$("fchips").addEventListener("click",function(e){var b=e.target.closest("button[data-f]");if(!b)return;fi=+b.getAttribute("data-f");renderChips();renderMaps();renderEvents();caps()});
+$("events").addEventListener("click",e=>{
+ var t=e.target.closest("[data-i]"),s=e.target.closest("#mDance svg");
+ if(t){pick(t);return}
+ if(CAN&&ED&&s&&sel>-1&&joins(P[sel],"dance")){
+  var r=s.getBoundingClientRect(),p=P[sel];
+  (p.f=p.f||{})[FM[fi].id]={x:r1((e.clientX-r.left)/r.width*320),y:r1((e.clientY-r.top)/r.height*270)};
+  save();refresh();
+ }
+});
+$("events").addEventListener("keydown",e=>{var t=e.target.closest&&e.target.closest("g[data-i]");if(t&&(e.key==="Enter"||e.key===" ")){e.preventDefault();pick(t)}});
+$("chips").addEventListener("click",e=>{var b=e.target.closest("button[data-g]");if(!b)return;cur=b.getAttribute("data-g");renderChips();renderList()});
+$("fchips").addEventListener("click",e=>{var b=e.target.closest("button[data-f]");if(!b)return;fi=+b.getAttribute("data-f");if(MV){PL.P=fi;pauseMV()}renderChips();renderMaps();renderEvents();caps()});
 $("q").addEventListener("input",refresh);
-document.addEventListener("click",function(e){
+$("pf").addEventListener("change",()=>{pf=$("pf").value;renderList()});
+$("pg").addEventListener("change",()=>{pgSel=$("pg").value;if(MV)setMV(true);renderEvents()});
+$("sl").addEventListener("click",e=>{var b=e.target.closest("button[data-pg]");if(!b)return;pgSel=b.getAttribute("data-pg");$("pg").innerHTML=opts(pgSel,0);show("events")});
+$("ed").addEventListener("click",()=>{if(!CAN)return;ED=!ED;if(ED&&MV)setMV(false);$("ed").setAttribute("aria-pressed",ED);$("edp").hidden=!ED;caps()});
+$("mv").addEventListener("click",()=>setMV(!MV));
+$("mvp").addEventListener("click",()=>{if(PL.on){pauseMV();return}PL.on=true;PL.last=0;$("mvp").textContent="⏸ 一時停止";PL.raf=requestAnimationFrame(tick)});
+$("mvb").addEventListener("click",()=>stepMV(-1));
+$("mvn").addEventListener("click",()=>stepMV(1));
+$("mvs").addEventListener("click",()=>{PL.slow=!PL.slow;$("mvs").setAttribute("aria-pressed",PL.slow)});
+$("edclr").addEventListener("click",()=>{var p=P[sel];if(p&&p.f){delete p.f[FM[fi].id];save();refresh()}});
+$("edout").addEventListener("click",()=>{var t=$("edta");t.hidden=false;t.value=JSON.stringify(saved());t.focus();t.select();try{navigator.clipboard.writeText(t.value)}catch(e){}});
+document.addEventListener("click",e=>{
  var b=e.target.closest("button[data-z]");if(!b)return;
  var id=b.getAttribute("data-z"),d=+b.getAttribute("data-d");
  Z[id]=d===0?0:Math.max(0,Math.min(ZS.length-1,Z[id]+d));renderMaps();$("z"+id).textContent=Math.round(ZS[Z[id]]*100)+"%";
 });
-document.querySelector(".tabs").addEventListener("click",function(e){
- var b=e.target.closest("button[data-v]");if(!b)return;
- document.querySelectorAll(".tabs button").forEach(function(x){x.setAttribute("aria-pressed",x===b)});
- $("players").hidden=b.dataset.v!=="players";$("events").hidden=b.dataset.v!=="events";
- if(b.dataset.v==="events")renderEvents();
-});
-var pgSel="relay";
-function renderPg(){
- $("pg").innerHTML=PG.map(function(x){return '<option value="'+x.id+'"'+(x.id===pgSel?" selected":"")+'>No.'+x.no+' '+esc(x.short)+'（'+gt(x.grades)+'）</option>'}).join("");
- $("sRelay").hidden=pgSel!=="relay";$("sDance").hidden=pgSel!=="dance";
-}
-$("pg").addEventListener("change",function(){pgSel=$("pg").value;renderPg();renderEvents()});
-renderPg();renderChips();refresh();
+document.querySelector(".tabs").addEventListener("click",e=>{var b=e.target.closest("button[data-v]");if(b)show(b.dataset.v)});
+var CAN=false;
+(async()=>{try{var u=await claude.use("user");if(u&&u.canEdit()){CAN=true;$("ed").hidden=false}}catch(e){}})();
+load();$("pf").innerHTML=opts(pf,1);$("pg").innerHTML=opts(pgSel,0);renderChips();renderSched();refresh();
 </script>
 </body>
 </html>
